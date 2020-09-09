@@ -146,6 +146,7 @@ class MCP_CAN {
     byte readMsgBufID(unsigned long* ID, byte* len, byte* buf);     // read buf with object ID
     byte checkReceive(void);                                        // if something received
     byte checkError(void);                                          // if something error
+    byte getError(void);                                            // get errors
     unsigned long getCanId(void);                                   // get can id when receive
     byte isRemoteRequest(void);                                     // get RR flag when receive
     byte isExtendedFrame(void);                                     // did we recieve 29bit frame?

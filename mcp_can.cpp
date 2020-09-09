@@ -1326,8 +1326,17 @@ byte MCP_CAN::checkReceive(void) {
 ** Descriptions:            if something error
 *********************************************************************************************************/
 byte MCP_CAN::checkError(void) {
-    byte eflg = mcp2515_readRegister(MCP_EFLG);
+    byte eflg = getError();
     return ((eflg & MCP_EFLG_ERRORMASK) ? CAN_CTRLERROR : CAN_OK);
+}
+
+/*********************************************************************************************************
+** Function name:           getError
+** Descriptions:            Returns error register value.
+*********************************************************************************************************/
+byte MCP_CAN::getError(void)
+{
+    return mcp2515_readRegister(MCP_EFLG);
 }
 
 /*********************************************************************************************************
